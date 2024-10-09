@@ -1,87 +1,51 @@
 public class Main {
     public static void main(String[] args) {
-
-        int totalSavings = 0;
-        int monthlySavings = 15_000;
-        int month = 0;
-
-        while (totalSavings < 2_459_000) {
-            totalSavings += monthlySavings;
-            month += 1;
-            if (totalSavings >= 2_459_000) {
-                System.out.println("Месяц " + month + ", сумма накоплений равна " + totalSavings + " рублей.");
-            }
+        int[] array = {5000, 2000, 3000, 1000, 5000};
+        int[] array2 = {111, 222, 333, 444, 555};
+        int[] array3 = {1111, 2222, 3333, 4444, 5555};
+        //task 1
+        int total = 0;
+        for (int j : array) {
+            total += j;
         }
-
+        System.out.println("Сумма трат за месяц составила " + total + " рублей");
+        System.out.println(" ");
 
         //task 2
-        int i = 0;
-        while (i < 10) {
-            i += 1;
-            System.out.print(i + " ");
-
+        int maxNum = 0;
+        int minNum = 10000000;
+        for (int i : array2) {
+            if (maxNum < i) {
+                maxNum = i;
+            }
+            if (minNum > i) {
+                minNum = i;
+            }
         }
-        System.out.println(" ");
-
-        for (int f = 10; f > 0; ) {
-            System.out.print(f + " ");
-            f = f - 1;
-        }
-        System.out.println(" ");
-
+        System.out.println("Минимальная сумма трат за неделю составила " + minNum + " рублей. Максимальная сумма трат за неделю составила " + maxNum + " рублей");
 
         //task 3
-        int years = 0;
-        int peoples = 12_000_000;
-        int birthToDeathRatePearYear = 17 - 8;
-        while (years < 10) {
-            years += 1;
-            System.out.println("Год " + years + ", численность населения составляет " + (peoples + (peoples / 1000 * birthToDeathRatePearYear * years)));
+        float total2 = 0f;
+        for (int j : array3) {
+            total2 += j;
         }
+        System.out.println("Средняя сумма трат за месяц составила " + (total2 / array3.length) + " рублей");
 
-        //task 4,5
-        int amountOfSaving = 15000;
-        month = 0;
-        while (amountOfSaving < 12_000_000) {
-            amountOfSaving *= 1.07;
-            month++;
-            if (month % 6 == 0) {
-                System.out.println("Месяц " + month + ", сумма накоплений: " + amountOfSaving);
-            }
+
+        //task 4
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        int left = 0;
+        int right = reverseFullName.length - 1;
+        while (left < right) {
+            char a = reverseFullName[left];
+            char b = reverseFullName[right];
+            reverseFullName[left] = b;
+            reverseFullName[right] = a;
+            left++;
+            right--;
         }
-        System.out.println(" ");
+        System.out.println(reverseFullName);
 
-        //task 6
-        int month2 = 12 * 9;
-        int cash = 15000;
-        for (int e = 1; e <= month2; e++) {
-            cash *= 1.07;
-            if (e % 6 == 0) {
-                System.out.println("Месяц " + e + " сумма накоплений " + cash);
-            }
-        }
-        //task 7
-        int firstFriday = 3; // Номер первой пятницы месяца (от 1 до 7)
-        int currentDay = firstFriday; // Текущий день недели
 
-        for (int day = 1; day <= 31; day++) {
-            if (currentDay == 5) {
-                System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет.");
-            }
-            currentDay = (currentDay + 1) % 7; // Переход к следующему дню недели
-        }
-
-        //task 8
-        int currentYear = 2023; // Текущий год
-        int cometCycle = 79; // Период появления кометы
-
-        int startYear = currentYear - 200; // Год, который был 200 лет назад
-        int endYear = currentYear + 100; // Год, который будет через 100 лет
-
-        for (int year = startYear; year <= endYear; year++) {
-            if (year % cometCycle == 0) {
-                System.out.println(year);
-            }
-        }
     }
 }
